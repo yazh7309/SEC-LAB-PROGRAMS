@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //whta is promise?
+        //promise
+        //example 2
+        let tosscoin=new Promise((resolve,reject)=>{
+            let rand=Math.floor(Math.random()*2);
+            if(rand==0)
+            resolve()
+            else
+            reject()
+        })
+        .then((rand)=>console.log(`you won ${rand}`)) //$ {}=formating string 
+        .catch((rand)=>console.log(`you lose ${rand}`)) 
+        
+        
+        //example 3[asyn]
+        async function send(){
+            console.log("msg sended")
+        }
+         console.log(send())
+
+
+
+         //example4L:
+         function placeOrder(){
+            return new Promise((resolve,reject)=>{
+                console.log("try to palcing yoru order")
+                setTimeout(() => {
+                    
+                },2000);
+            })
+
+         }
+         async function trackDelivery(){
+            let steps=[
+                "preparing your order",
+                "prepared and picked up by delivery partner ",
+                "on the way to deliver your order",
+                "order deliverd"
+            ]
+            for(let step of steps){
+                await new Promise((res)=>setTimeout(res,2000))
+                console.log(status);
+            }
+
+
+         }
+         async function orderStatus(){
+            const Status=await placeOrder()
+            console.log(Status)
+         }
+         orderStatus()
+         
+    </script>
+</body>
+</html>
